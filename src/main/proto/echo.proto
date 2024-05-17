@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.saeed.grpcvalidation;
+
+option java_multiple_files = true;
+option java_package = "com.saeed.grpcvalidation.model";
+option java_outer_classname = "EchoProto";
+
+service EchoService {
+  rpc echo(Message) returns (Message){
+  }
+}
+
+message Message {
+  string text = 1;
+}
