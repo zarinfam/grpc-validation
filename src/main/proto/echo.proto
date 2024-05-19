@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package com.saeed.grpcvalidation;
 
+import "buf/validate/validate.proto";
+
 option java_multiple_files = true;
 option java_package = "com.saeed.grpcvalidation.model";
 option java_outer_classname = "EchoProto";
@@ -12,5 +14,6 @@ service EchoService {
 }
 
 message Message {
-  string text = 1;
+  // Message's text, must be at least 3 character long.
+  string text = 1 [(buf.validate.field).string.min_len = 3];
 }
